@@ -1,0 +1,182 @@
+/* Payment Page */
+.payment-hero {
+  padding: calc(var(--navbar-height) + var(--space-12)) 0 var(--space-12);
+  background: var(--surface-low);
+}
+
+.payment-hero h1 { margin: var(--space-4) 0 var(--space-2); }
+.payment-hero p { color: var(--outline); }
+
+.payment-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.payment-methods h3 {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-4);
+}
+
+.method-options {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.method-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background: var(--surface-lowest);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 2px solid transparent;
+  text-align: center;
+}
+
+.method-option input { display: none; }
+
+.method-option:hover { background: var(--surface-low); }
+
+.method-active {
+  border-color: var(--primary-container) !important;
+  background: var(--primary-light) !important;
+}
+
+.method-option span {
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.card-form, .payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+
+.wallet-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.wallet-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface-lowest);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.wallet-option input { display: none; }
+.wallet-option:has(input:checked) { border-color: var(--primary-container); background: var(--primary-light); }
+
+.payment-security {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.8125rem;
+  color: var(--secondary);
+}
+
+.payment-submit {
+  width: 100%;
+  padding: var(--space-4) !important;
+  font-size: 1.0625rem !important;
+}
+
+.payment-processing {
+  opacity: 0.8;
+}
+
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-left-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Success */
+.success-container {
+  display: flex;
+  justify-content: center;
+  min-height: 80vh;
+  align-items: center;
+  padding-top: var(--navbar-height);
+}
+
+.success-card {
+  max-width: 520px;
+  text-align: center;
+  padding: var(--space-10);
+  background: var(--surface-lowest);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+.success-icon {
+  color: var(--secondary);
+  margin-bottom: var(--space-4);
+  animation: pulse 2s ease infinite;
+}
+
+.success-card h1 {
+  font-size: 2rem;
+  margin-bottom: var(--space-3);
+  color: var(--secondary);
+}
+
+.success-message { color: var(--outline); margin-bottom: var(--space-6); }
+
+.success-details {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  background: var(--surface-low);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-5);
+}
+
+.success-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+}
+
+.success-row span { color: var(--outline); }
+
+.success-total {
+  padding-top: var(--space-3);
+  border-top: 1px dashed var(--outline-variant);
+  font-size: 1rem !important;
+}
+
+.success-email { font-size: 0.8125rem; color: var(--outline); margin-bottom: var(--space-6); }
+
+.success-actions { display: flex; gap: var(--space-4); justify-content: center; }
+
+.payment-summary { position: sticky; top: calc(var(--navbar-height) + var(--space-4)); }
+
+@media (max-width: 768px) {
+  .payment-layout { grid-template-columns: 1fr; }
+  .method-options { grid-template-columns: repeat(2, 1fr); }
+}
